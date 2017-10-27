@@ -1,36 +1,31 @@
 <?php
-
+// імпорт класів PHPMailer до глобального простору імен
 use PHPMailer\PHPMailer\PHPMailer;
+// підтягування автозавантажувача композера
 require "vendor/autoload.php";
 
-// $shuffleData = [0 => ['bla@bla.com', 'Бум', 'Борис', 'Борисович'],
-// 1 => ['bla@bla.com', 'Бім', 'Павло', 'Павлович']];
-
-// foreach ($shuffleData as $key => $value) {
-// 	if ($key == count($shuffleData)-1) {
-// 		$file = fopen("$value[1]_$value[2]_$value[3].txt", "wb");
-// 		fwrite($file, $shuffleData[0][1]." ".$shuffleData[0][2]." ".$shuffleData[0][3]);
-// 		fclose($file);
-// 	} else {
-// 		$file = fopen("$value[1]_$value[2]_$value[3].txt", "wb");
-// 		fwrite($file, $shuffleData[$key+1][1]." ".$shuffleData[$key+1][2]." ".$shuffleData[$key+1][3]);
-// 		fclose($file);
-// 	}
-// }
-
+// прохід в циклі масиву з даними і здійснення розсилки листів з вкладеннями
 foreach ($shuffleData as $key => $value) {
 	$adress = $shuffleData[$key][0];
 	$name = $shuffleData[$key][2];
 	$file = $shuffleData[$key][1]."_".$shuffleData[$key][2]."_".$shuffleData[$key][3].".txt";
 
+	// формування листа
 	$mail = new PHPMailer();
 	$mail->CharSet = "utf-8";
+	// встановлення відправника
 	$mail->setFrom("santa@sender.com", "Santa");
+	// поточна адреса електронної скриньки отримувача
 	$mail->addAddress($adress, "");
+	// тема листа
 	$mail->Subject = "Таємний санта";
+	// текст повідомлення
 	$mail->msgHTML("Привіт $name! У вкладенні ти знайдеш імʼя людини, для якої ти маєш підготувати подарунок :)");
+	// додавання вкладення
 	$mail->addAttachment($file, $file);
+	// відправка листа
 	$mail->send();
+	// видалення поточного файлу
 	unlink($file);
 }
 ?>

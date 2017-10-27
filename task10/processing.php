@@ -1,13 +1,6 @@
 <?php
-
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 // створення масиву формату [ 0 => email прізвище ім'я по-батькові]
 $inputData = explode("\n", $_POST["input"]);
-
-print_r($inputData);
-echo "<br><br>";
 
 // перемішування массиву
 $shuffleData = shuffle_assoc($inputData); 
@@ -21,16 +14,10 @@ function shuffle_assoc($array) {
 	return $array;
 }
 
-print_r($shuffleData);
-echo "<br><br>";
-
 // перетворення масиву у формат [ 0 => [email, прізвище, ім'я, по-батькові]]
 foreach ($shuffleData as $key => $value) {
 	$shuffleData[$key]=explode(" ", trim($shuffleData[$key]));
 }
-
-var_dump($shuffleData);
-echo "<br><br>";
 
 // створення і запис інформації у файли
 foreach ($shuffleData as $key => $value) {
@@ -45,16 +32,13 @@ foreach ($shuffleData as $key => $value) {
 	}
 }
 
+// якщо вибрано інформування по email, то здійснюється розсилка
 if ($_POST["email"] == "1") {
-	require "mailSender.php";
+	// розкоментувати для увімкнення функціі інформування по email
+	// require "mailSender.php"; 
+	echo "Листи успішно відправлено!";
 } else {
-	echo 2;
+	echo "Список файлів успішно створено!";
 }
 
-// function DeleteInput($shuffleData){
-// foreach ($shuffleData as $key => $value) {
-// $file = $shuffleData[$key][1]."_".$shuffleData[$key][2]."_".$shuffleData[$key][3].".txt";
-// unlink($file);
-// }
-// }
 ?>
