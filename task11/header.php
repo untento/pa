@@ -7,3 +7,5 @@
 
 </head>
 <Body>
+<?php require 'menu.php'; ?>
+<br>
