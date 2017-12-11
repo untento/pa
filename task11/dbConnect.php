@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 
 $dbName = "blog";
 $dbUser = "root";
-$dbPass = "0000";
+$dbPass = "1111";
 
 $dbLink = mysqli_connect("localhost", $dbUser, $dbPass, $dbName);
 mysqli_query($dbLink,"SET NAMES 'utf8'"); 
