@@ -1,13 +1,15 @@
 <?php
 
 if (isset($_SESSION['id'])) {
-	$menu_list = ["index.php" => "Головна",			  
-			  "signOut.php" => "Вийти"
-			 ];
-} else {
-	$menu_list = ["index.php" => "Головна",			  
-			  "signIn.php" => "Авторизація"
-			 ];
+	$menu_list = ["signOut.php" => "Вийти"
+];
+if ($_SESSION['id'] == 1) {
+	$menu_list = [			  
+		"addPost.php" => "Додати пост",
+		"signOut.php" => "Вийти"
+	];
+}	
 }
+
 
 ?>
