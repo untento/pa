@@ -17,9 +17,10 @@ mysqli_close($dbLink);
 
 if ($credentials['nickname'] == $userData['nickname'] AND $credentials['pass'] == $userData['pass']) {
 	$_SESSION['id'] = $userData['user_id'];
+	$_SESSION['name'] = $userData['nickname'];
 	echo 'Ви успішно залогінились <br>';
 	echo '<a href="index.php">Повернутися на головну сторінку</a>';
 } else {
-	echo "bad";
+	echo "invalid pass or username";
 }
 ?>
