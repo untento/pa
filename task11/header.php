@@ -11,6 +11,29 @@
 
 
   <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+
+
+<style>
+   .parent { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin-top: 0;
+    left: 0;
+    overflow: auto; 
+   }
+.block {
+  padding: 5px 5px 20px 5px;
+    width: 1000px;
+    height: auto;
+    margin: auto;
+    text-align: justify;
+    font-size: 12pt;
+}
+  </style>
+
+
+
 </head>
 <Body>
 
@@ -47,5 +70,3 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
-  <br>
