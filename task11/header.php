@@ -41,6 +41,7 @@
 
             .lines {
                 margin: 10px;
+                margin-right: 15px;
             }
 
             #footer {
