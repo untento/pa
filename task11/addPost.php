@@ -1,9 +1,11 @@
+<!--форма додаваня поста-->
 <?php require 'header.php'; ?>
 <div class="parent">
     <form action="postWrite.php" method="POST">
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
+                <!--заголовок поста-->
                 <div class="form-group">
                     <label>Заголовок</label>
                     <input type="text" class="form-control" name="heading">
@@ -14,6 +16,7 @@
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
+                <!--скорочений опис поста-->
                 <div class="form-group">
                     <label>Скорочений опис</label>
                     <textarea class="form-control" rows="5" name="description"></textarea>
@@ -24,9 +27,11 @@
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
-                <div class="form-group">
+                <!--текст поста-->
+                <div class="form-group">                   
                     <label>Текст</label>
                     <textarea class="form-control" name="text"></textarea>
+                    <!--підключення CKEDITOR-->
                     <script>
                         CKEDITOR.replace('text');
                     </script>

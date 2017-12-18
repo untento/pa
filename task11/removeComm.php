@@ -1,5 +1,4 @@
-<?php require 'header.php';?>
-
+<!--обробка форми видалення користувача-->
 <?php
 require 'dbConnect.php';
 
@@ -11,6 +10,7 @@ mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 mysqli_close($dbLink);
 unset ($_SESSION['comment_id']);
+//редірект на сторінку з постом
 header("Location: post.php?post_id=".$_SESSION['post_id']);
 ?>
 

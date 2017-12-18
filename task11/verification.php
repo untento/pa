@@ -1,3 +1,4 @@
+<!--обробка форми авторизації-->
 <?php
 session_start();
 // print_r($_POST);

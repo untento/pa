@@ -1,3 +1,4 @@
+<!--форма видалення користувача-->
 <?php require 'header.php';?>
 
 <?php
@@ -23,6 +24,6 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     </div>
 </form>
 <?php
-                                                         }
+}
 ?>
 <?php require 'footer.php'; ?>

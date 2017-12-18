@@ -1,3 +1,4 @@
+<!--форма авторизації-->
 <?php require 'header.php'; ?>
 <div class="parent">
     <div class="block">

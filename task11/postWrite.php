@@ -1,3 +1,4 @@
+<!--обробка форми додавання поста-->
 <?php
 session_start();
 
@@ -22,5 +23,6 @@ mysqli_stmt_execute($stmt);
 printf("Ошибка: %d.\n", mysqli_stmt_errno($stmt));
 mysqli_stmt_close($stmt);
 mysqli_close($dbLink);
+//редірект на головну сторінку
 header("Location: index.php");
 ?>
