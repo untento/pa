@@ -63,9 +63,12 @@
                         <div class="col-sm-12">
                             <?php
                     printf("<b>%s %s <br></b>", $row["nickname"], date("d.m.Y в H:i", strtotime($row["date"])));
-                    if ($row["user_id"] == $_SESSION["user_id"]){
-                        $commentID = $row["comment_id"];
-                        printf("<a href=\"editComment.php?comment=$commentID\">%s</a> <a href=\"removeComment.php?comment=$commentID\">%s</a><br>", "редагувати", "видалити");
+                    if (isset($_SESSION['user_id'])) {
+                        if ($row["user_id"] == $_SESSION["user_id"] OR $_SESSION['id'] == '1'){
+                            $commentID = $row["comment_id"];
+                            $postID = $_GET['post_id'];
+                            printf("<a href=\"editComment.php?comment_id=$commentID&post_id=$postID\">%s</a> <a href=\"removeComment.php?comment_id=$commentID&post_id=$postID\">%s</a><br>", "редагувати", "видалити");
+                        }
                     }
                     printf ("%s ", $row["comment"]);
                             ?>

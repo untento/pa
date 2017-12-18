@@ -10,12 +10,12 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 echo "<div class=\"parent\">";
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-	$postID = $row["post_id"];
-	echo "<div class=\"block\">";
-	printf ("<b><a href=\"post.php?post_id=$postID\">%s</a></b> <br> <div class=\"box\">%s ", $row["post_name"], $row["post_description"]);
-	echo "</div>";
-	printf("<b><i>Створено користувачем %s, %s </i></b><br>", $row["nickname"], date("d.m.Y", strtotime($row["date"])));
-	echo "</div>";
+    $postID = $row["post_id"];
+    echo "<div class=\"block\">";
+    printf ("<b><a href=\"post.php?post_id=$postID\">%s</a></b> <br> <div class=\"box\">%s ", $row["post_name"], $row["post_description"]);
+    echo "</div>";
+    printf("<b><i>Створено користувачем %s, %s </i></b><br>", $row["nickname"], date("d.m.Y", strtotime($row["date"])));
+    echo "</div>";
 
 }
 echo "</div>";
